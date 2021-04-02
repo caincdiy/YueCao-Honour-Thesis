@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -l walltime=45:00:00,select=1:ncpus=8:mem=48gb:ngpus=1:gpu_mem=32gb
+#PBS -N AC_RRG
+#PBS -A ex-fhendija-1-gpu
+#PBS -o testoutput1o3.txt
+#PBS -e testerror1o3.txt
+ 
+################################################################################
+
+module load python/3.7.3
+module load py-pip/19.0.3-py3.7.3
+export PYTHONPATH=/arc/project/ex-fhendija-1/caoyuecc/pip_lib_py3.7.3:$PYTHONPATH
+
+
+
+cd $PBS_O_WORKDIR
+ 
+python model.py
